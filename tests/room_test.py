@@ -34,11 +34,10 @@ class TestRoom(TestSetup):
         self.room1.add_song(self.song1)
         self.assertEqual(1, len(self.room1.songs))
 
-    @unittest.skip('')
     def test_add_multiple_songs(self):
         self.room1.add_song(self.song1)
         self.room1.add_song(self.song2)
-        self.assertEqual(2, len(self.songs))
+        self.assertEqual(2, len(self.room1.songs))
 
     @unittest.skip('')
     def test_add_correct_songs(self):
