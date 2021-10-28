@@ -9,3 +9,4 @@ class TestSetup(unittest.TestCase):
         self.guest2 = Guest("Belinda")
         self.room1 = Room()
         self.song1 = Song("Shoe Box Money", "Benny Sings")
+        self.song2 = Song("Baleine", "Purl")
