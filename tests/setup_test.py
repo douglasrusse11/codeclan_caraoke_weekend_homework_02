@@ -6,5 +6,5 @@ from classes.song import Song
 class TestSetup(unittest.TestCase):
     def setUp(self):
         self.guest1 = Guest("Barry")
-        self.room1 = Room()
-        self.song1 = Song("Shoe Box Money", "Benny Sings")
+        # self.room1 = Room()
+        # self.song1 = Song("Shoe Box Money", "Benny Sings")
