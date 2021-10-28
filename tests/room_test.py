@@ -5,7 +5,7 @@ class TestRoom(TestSetup):
     def test_room_has_no_guests(self):
         self.assertEqual([], self.room1.guests)
 
-    def test_room_hass_no_songs(self):
+    def test_room_has_no_songs(self):
         self.assertEqual([], self.room1.songs)
 
     def test_check_in_guest(self):
@@ -17,7 +17,6 @@ class TestRoom(TestSetup):
         self.room1.check_in_guest(self.guest2)
         self.assertEqual(2, len(self.room1.guests))
 
-    @unittest.skip('')
     def test_check_out_guest(self):
         self.room1.check_in_guest(self.guest1)
         self.room1.check_out_guest(self.guest1)
