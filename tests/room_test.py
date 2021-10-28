@@ -30,7 +30,6 @@ class TestRoom(TestSetup):
         self.assertTrue(self.guest2 in self.room1.guests)
         self.assertFalse(self.guest1 in self.room1.guests)
 
-    @unittest.skip('')
     def test_add_song(self):
         self.room1.add_song(self.song1)
         self.assertEqual(1, len(self.room1.songs))
