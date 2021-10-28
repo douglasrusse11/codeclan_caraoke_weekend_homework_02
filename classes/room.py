@@ -7,4 +7,4 @@ class Room:
         self.guests.append(guest)
 
     def check_out_guest(self, guest):
-        self.guests = []
+        self.guests.remove(guest)
