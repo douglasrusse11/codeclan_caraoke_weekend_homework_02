@@ -10,4 +10,4 @@ class Room:
         self.guests.remove(guest)
 
     def add_song(self, song):
-        self.songs = [song]
+        self.songs.append(song)
