@@ -1,2 +1,3 @@
 class Room:
-    pass
+    def __init__(self):
+        self.guests = []
