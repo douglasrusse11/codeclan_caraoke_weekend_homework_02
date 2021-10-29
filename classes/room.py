@@ -45,6 +45,7 @@ class Room:
         self.favourite_songs[guest.favourite_song].append(guest)
 
     def remove_favourite_song(self,guest):
+        """Removes guest from guests in song:guests key:value pair, removes key if guests is empty"""
         self.favourite_songs[guest.favourite_song].remove(guest)   
         if self.favourite_songs[guest.favourite_song] == []:
             del self.favourite_songs[guest.favourite_song]
