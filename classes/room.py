@@ -25,3 +25,8 @@ class Room:
         if guest.favourite_song not in self.favourite_songs:
             self.favourite_songs[guest.favourite_song] = []
         self.favourite_songs[guest.favourite_song].append(guest)
+
+    def generate_playlist(self):
+        for song in self.songs:
+            if song in self.favourite_songs:
+                self.playlist[song] = self.favourite_songs[song][0]
