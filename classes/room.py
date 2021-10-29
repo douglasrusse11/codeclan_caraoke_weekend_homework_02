@@ -13,7 +13,7 @@ class Room:
     def check_in_guest(self, guest):
         if guest.can_afford_entry_fee(self.fee) and not self.is_at_capacity():
             self.guests.append(guest)
-            self.till += self.fee
+            self.charge_fee()
             guest.wallet -= self.fee
             return guest.cheer(self.songs)
 
@@ -38,3 +38,6 @@ class Room:
 
     def song_lottery(self, song):
         return self.favourite_songs[song][random.randint(0, len(self.favourite_songs[song]) - 1)]
+
+    def charge_fee(self):
+        self.till += self.fee
