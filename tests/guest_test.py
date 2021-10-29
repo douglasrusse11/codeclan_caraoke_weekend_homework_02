@@ -12,7 +12,6 @@ class TestGuest(TestSetup):
         self.fee = 5
         self.assertTrue(self.guest2.can_afford_entry_fee(self.fee))
 
-    @unittest.skip('')
     def test_guest_cannot_afford_entry_fee(self):
         self.fee = 15
         self.assertFalse(self.guest1.can_afford_entry_fee(self.fee))

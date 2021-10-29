@@ -4,4 +4,4 @@ class Guest:
         self.wallet = wallet
 
     def can_afford_entry_fee(self, fee):
-        return True
+        return self.wallet >= fee
