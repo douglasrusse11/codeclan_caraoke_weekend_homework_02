@@ -77,7 +77,6 @@ class TestRoom(TestSetup):
         self.room1.add_favourite_song(self.guest1)
         self.assertEqual(result, self.room1.favourite_songs)
 
-    @unittest.skip('')
     def test_add_favourite_song_multiple_guests_same_song(self):
         result = {self.song1: [self.guest1, self.guest4]}
         self.room1.add_favourite_song(self.guest1)
