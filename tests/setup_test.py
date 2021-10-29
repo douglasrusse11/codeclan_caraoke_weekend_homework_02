@@ -7,6 +7,7 @@ class TestSetup(unittest.TestCase):
     def setUp(self):
         self.song1 = Song("Shoe Box Money", "Benny Sings")
         self.song2 = Song("Bounding", "Ice Choir")
+        self.song3 = Song("Emergency Room", "Ford & Lopatin")
         self.guest1 = Guest("Barry", 10, self.song1)
         self.guest2 = Guest("Belinda", 15, self.song2)
         self.guest3 = Guest("Bill", 2, self.song2)
