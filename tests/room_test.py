@@ -284,7 +284,6 @@ class TestRoom(TestSetup):
         self.assertEqual(self.guest3, self.room2.playlist[self.song2])
         self.assertEqual(self.guest5, self.room2.playlist[self.song3])
     
-    @unittest.skip('')
     def test_generate_playlist_integration_check_out_guests_removes_song_from_favourite_songs(self):
         self.room2.add_song(self.song1)
         self.room2.add_song(self.song2)
