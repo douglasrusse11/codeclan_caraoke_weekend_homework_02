@@ -29,6 +29,7 @@ class Room:
     def check_out_guest(self, guest):
         """Removes guest from self.guests"""
         self.guests.remove(guest)
+        self.remove_favourite_song(guest)
 
     def add_song(self, song):
         """Adds song to List self.songs"""
@@ -43,6 +44,12 @@ class Room:
         if guest.favourite_song not in self.favourite_songs:
             self.favourite_songs[guest.favourite_song] = []
         self.favourite_songs[guest.favourite_song].append(guest)
+
+    def remove_favourite_song(self,guest):
+        """Removes guest from guests in song:guests key:value pair, removes key if guests is empty"""
+        self.favourite_songs[guest.favourite_song].remove(guest)   
+        if self.favourite_songs[guest.favourite_song] == []:
+            del self.favourite_songs[guest.favourite_song]
 
     def generate_playlist(self):
         """Sets playlist to a Dict of Song:Guest key:value pairs where each Song is the favourite song of a Guest"""

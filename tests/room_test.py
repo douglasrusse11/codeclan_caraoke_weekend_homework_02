@@ -90,6 +90,26 @@ class TestRoom(TestSetup):
         self.room1.add_favourite_song(self.guest4)
         self.assertEqual(result, self.room1.favourite_songs)
 
+    def test_remove_favourite_song_multiple_guests_same_song(self):
+        result = {self.song1: [self.guest4], self.song2: [self.guest2]}
+        self.room2.add_favourite_song(self.guest1)
+        self.room2.add_favourite_song(self.guest2)
+        self.room2.add_favourite_song(self.guest4)
+        self.room2.remove_favourite_song(self.guest1)
+        self.assertEqual(result, self.room2.favourite_songs)
+
+    def test_remove_favourite_song_multiple_guests_multiple_songs(self):
+        result = {self.song2: [self.guest2]}
+        self.room2.add_favourite_song(self.guest1)
+        self.room2.add_favourite_song(self.guest2)
+        self.room2.remove_favourite_song(self.guest1)
+        self.assertEqual(result, self.room2.favourite_songs)
+
+    def test_remove_favourite_song(self):
+        self.room1.add_favourite_song(self.guest1)
+        self.room1.remove_favourite_song(self.guest1)
+        self.assertEqual({}, self.room2.favourite_songs)
+
     def test_generate_playlist(self):
         self.room1.add_song(self.song1)
         self.room1.add_song(self.song2)
@@ -240,4 +260,49 @@ class TestRoom(TestSetup):
         self.room2.generate_playlist()
         self.assertEqual(2, len(self.room2.playlist))
         self.assertTrue(self.room2.playlist[self.song1] in [self.guest1, self.guest4])
+        self.assertEqual(self.guest5, self.room2.playlist[self.song3])
+
+    def test_generate_playlist_integration_check_out_guests(self):
+        self.room2.add_song(self.song1)
+        self.room2.add_song(self.song2)
+        self.room2.add_song(self.song3)
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest1))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest2))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest3))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest4))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest5))
+        self.room2.check_out_guest(self.guest2)
+        self.room2.check_out_guest(self.guest4)
+        self.assertEqual(10, self.room2.till)
+        self.assertEqual(8, self.guest1.wallet)
+        self.assertEqual(13, self.guest2.wallet)
+        self.assertEqual(0, self.guest3.wallet)
+        self.assertEqual(5, self.guest4.wallet)
+        self.assertEqual(10, self.guest5.wallet)
+        self.room2.generate_playlist()
+        self.assertEqual(self.guest1, self.room2.playlist[self.song1])
+        self.assertEqual(self.guest3, self.room2.playlist[self.song2])
+        self.assertEqual(self.guest5, self.room2.playlist[self.song3])
+    
+    def test_generate_playlist_integration_check_out_guests_removes_song_from_favourite_songs(self):
+        self.room2.add_song(self.song1)
+        self.room2.add_song(self.song2)
+        self.room2.add_song(self.song3)
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest1))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest2))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest3))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest4))
+        self.assertEqual("Whoo!", self.room2.check_in_guest(self.guest5))
+        self.room2.check_out_guest(self.guest1)
+        self.room2.check_out_guest(self.guest2)
+        self.room2.check_out_guest(self.guest4)
+        self.assertEqual(10, self.room2.till)
+        self.assertEqual(8, self.guest1.wallet)
+        self.assertEqual(13, self.guest2.wallet)
+        self.assertEqual(0, self.guest3.wallet)
+        self.assertEqual(5, self.guest4.wallet)
+        self.assertEqual(10, self.guest5.wallet)
+        self.room2.generate_playlist()
+        self.assertFalse(self.song1 in self.room2.playlist)
+        self.assertEqual(self.guest3, self.room2.playlist[self.song2])
         self.assertEqual(self.guest5, self.room2.playlist[self.song3])
