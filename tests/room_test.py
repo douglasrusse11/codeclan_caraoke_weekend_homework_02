@@ -14,6 +14,18 @@ class TestRoom(TestSetup):
     def test_room_has_fee(self):
         self.assertEqual(5, self.room1.fee)
 
+    @unittest.skip('')
+    def test_room_has_empty_till(self):
+        self.assertEqual(0, self.room1.till)
+
+    @unittest.skip('')
+    def test_room_has_no_favourite_songs(self):
+        self.assertEqual({}, self.room1.favourite_songs)
+
+    @unittest.skip('')
+    def test_room_has_no_playlist(self):
+        self.assertEqual({}, self.room1.playlist)
+
     def test_check_in_guest(self):
         self.room1.check_in_guest(self.guest1)
         self.assertEqual(1, len(self.room1.guests))
