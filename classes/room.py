@@ -15,7 +15,7 @@ class Room:
             self.guests.append(guest)
             self.till += self.fee
             guest.wallet -= self.fee
-            return "Whoo!"
+            return guest.cheer(self.songs)
 
     def check_out_guest(self, guest):
         self.guests.remove(guest)
