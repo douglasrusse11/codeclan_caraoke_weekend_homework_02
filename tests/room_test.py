@@ -89,6 +89,28 @@ class TestRoom(TestSetup):
         self.room1.add_favourite_song(self.guest2)
         self.room1.add_favourite_song(self.guest4)
         self.assertEqual(result, self.room1.favourite_songs)
+
+    @unittest.skip('')
+    def test_generate_playlist(self):
+        self.room1.add_song(self.song1)
+        self.room1.add_song(self.song2)
+        self.room1.add_favourite_song(self.guest1)
+        self.room1.add_favourite_song(self.guest2)
+        self.room1.add_favourite_song(self.guest3)
+        self.room1.add_favourite_song(self.guest4)
+        self.assertTrue(self.room1.playlist[self.song1] in [self.guest1, self.guest4])
+        self.assertTrue(self.room1.playlist[self.song2] in [self.guest2, self.guest3])
+
+    @unittest.skip('')
+    def test_generate_playlist_song_not_in_favourites(self):
+        self.room1.add_song(self.song1)
+        self.room1.add_song(self.song2)
+        self.room1.add_song(self.song3)
+        self.room1.add_favourite_song(self.guest1)
+        self.room1.add_favourite_song(self.guest2)
+        self.room1.add_favourite_song(self.guest3)
+        self.room1.add_favourite_song(self.guest4)
+        self.assertFalse(self.song3 not in self.room1.playlist)
         
     # Integration tests
     def test_room_refuses_entry_if_guest_cannot_afford_entry_fee(self):
