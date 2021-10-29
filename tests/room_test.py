@@ -64,7 +64,6 @@ class TestRoom(TestSetup):
         self.assertFalse(self.room1.is_at_capacity())
 
     # Integration tests
-    @unittest.skip('')
     def test_room_refuses_entry_if_guest_cannot_afford_entry_fee(self):
         self.room1.check_in_guest(self.guest3)
         self.assertEqual([], self.room1.guests)
