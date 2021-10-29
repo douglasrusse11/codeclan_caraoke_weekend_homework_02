@@ -12,3 +12,6 @@ Initial class diagram for Extension
 ![Class Diagram Advanced Extension](img/class_diagram_v3.png)
 
 Initial class diagram for Advanced Extension
+
+# Final Class Diagram
+![Final Class Diagram](img/class_diagram_v4.png)
