@@ -46,6 +46,8 @@ class Room:
 
     def remove_favourite_song(self,guest):
         self.favourite_songs[guest.favourite_song].remove(guest)   
+        if self.favourite_songs[guest.favourite_song] == []:
+            del self.favourite_songs[guest.favourite_song]
 
     def generate_playlist(self):
         """Sets playlist to a Dict of Song:Guest key:value pairs where each Song is the favourite song of a Guest"""
