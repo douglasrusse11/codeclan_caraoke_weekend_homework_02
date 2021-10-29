@@ -19,8 +19,7 @@ class TestGuest(TestSetup):
         self.fee = 15
         self.assertFalse(self.guest1.can_afford_entry_fee(self.fee))
 
-    @unittest.skip('')
-    def test_guest_cheer(self)
+    def test_guest_cheer(self):
         songs = [self.song1, self.song2]
         self.assertEqual("Whoo!", self.guest1.cheer(songs))
 

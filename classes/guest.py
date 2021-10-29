@@ -6,3 +6,6 @@ class Guest:
 
     def can_afford_entry_fee(self, fee):
         return self.wallet >= fee
+
+    def cheer(self, songs):
+        return "Whoo!"
