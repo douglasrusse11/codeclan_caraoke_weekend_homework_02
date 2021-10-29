@@ -23,7 +23,6 @@ class TestGuest(TestSetup):
         songs = [self.song1, self.song2]
         self.assertEqual("Whoo!", self.guest1.cheer(songs))
 
-    @unittest.skip('')
     def test_guest_cheer_song_not_in_room(self):
         songs =[self.song1]
         self.assertEqual(None, self.guest2.cheer(songs))

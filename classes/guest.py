@@ -8,4 +8,5 @@ class Guest:
         return self.wallet >= fee
 
     def cheer(self, songs):
-        return "Whoo!"
+        if self.favourite_song in songs:
+            return "Whoo!"
