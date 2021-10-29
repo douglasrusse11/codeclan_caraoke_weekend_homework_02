@@ -22,7 +22,6 @@ class Room:
         return len(self.guests) == self.capacity
 
     def add_favourite_song(self, guest):
-        if guest.favourite_song in self.favourite_songs:
-            self.favourite_songs[guest.favourite_song].append(guest)
-        else:
-            self.favourite_songs = {guest.favourite_song: [guest]}
+        if guest.favourite_song not in self.favourite_songs:
+            self.favourite_songs[guest.favourite_song] = []
+        self.favourite_songs[guest.favourite_song].append(guest)
