@@ -15,4 +15,4 @@ class Room:
         self.songs.append(song)
 
     def is_at_capacity(self):
-        return True
+        return len(self.guests) == self.capacity
