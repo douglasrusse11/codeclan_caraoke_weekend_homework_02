@@ -51,7 +51,6 @@ class TestRoom(TestSetup):
         self.assertTrue(self.song1 in self.room1.songs)
         self.assertTrue(self.song2 in self.room1.songs)
         
-    @unittest.skip('')
     def test_room_is_at_capacity(self):
         self.room1.check_in_guest(self.guest1)
         self.room1.check_in_guest(self.guest2)

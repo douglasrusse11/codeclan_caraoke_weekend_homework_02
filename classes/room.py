@@ -13,3 +13,6 @@ class Room:
 
     def add_song(self, song):
         self.songs.append(song)
+
+    def is_at_capacity(self):
+        return True
