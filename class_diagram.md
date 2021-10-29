@@ -7,3 +7,8 @@ Initial class diagram for MVP
 ![Class Diagram Extension](img/class_diagram_v2.png)
 
 Initial class diagram for Extension
+
+# Advanced Extension Class Diagram
+![Class Diagram Advanced Extension](img/class_diagram_v3.png)
+
+Initial class diagram for Advanced Extension
