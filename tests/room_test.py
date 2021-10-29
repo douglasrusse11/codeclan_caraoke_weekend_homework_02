@@ -180,7 +180,8 @@ class TestRoom(TestSetup):
     @unittest.skip('')
     def test_add_favourite_song_multiple_guests_multiple_songs(self):
         result = {self.song1: [self.guest1, self.guest4], self.song2: [self.guest2]}
-        self.room1.check_in_guest(self.guest1)
-        self.room1.check_in_guest(self.guest2)
-        self.assertEqual(result, self.room1.favourite_songs)
+        self.room2.check_in_guest(self.guest1)
+        self.room2.check_in_guest(self.guest2)
+        self.room2.check_in_guest(self.guest4)
+        self.assertEqual(result, self.room2.favourite_songs)
 
