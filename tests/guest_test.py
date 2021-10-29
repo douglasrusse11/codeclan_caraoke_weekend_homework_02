@@ -8,7 +8,6 @@ class TestGuest(TestSetup):
     def test_guest_wallet(self):
         self.assertEqual(10, self.guest1.wallet)
 
-    @unittest.skip('')
     def test_guest_can_afford_entry_fee(self):
         self.fee = 5
         self.assertTrue(self.guest2.can_afford_entry_fee(self.fee))
