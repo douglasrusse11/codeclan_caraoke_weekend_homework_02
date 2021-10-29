@@ -166,3 +166,24 @@ class TestRoom(TestSetup):
         self.room1.add_song(self.song1)
         self.assertEqual(None, self.room1.check_in_guest(self.guest2))   
 
+    @unittest.skip('')
+    def test_check_in_guest_adds_favourite_song(self):
+        result = {self.song1: [self.guest1]}
+        self.room1.check_in_guest(self.guest1)
+        self.assertEqual(result, self.room1.favourite_songs)
+
+    @unittest.skip('')
+    def test_check_in_guest_adds_favourite_song_multiple_guests_same_song(self):
+        result = {self.song1: [self.guest1, self.guest4]}
+        self.room1.check_in_guest(self.guest1)
+        self.room1.check_in_guest(self.guest4)
+        self.assertEqual(result, self.room1.favourite_songs)
+
+    @unittest.skip('')
+    def test_add_favourite_song_multiple_guests_multiple_songs(self):
+        result = {self.song1: [self.guest1, self.guest4], self.song2: [self.guest2]}
+        self.room1.check_in_guest(self.guest1)
+        self.room1.check_in_guest(self.guest2)
+        self.room1.check_in_guest(self.guest4)
+        self.assertEqual(result, self.room1.favourite_songs)
+
