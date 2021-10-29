@@ -68,7 +68,6 @@ class TestRoom(TestSetup):
         self.room1.check_in_guest(self.guest3)
         self.assertEqual([], self.room1.guests)
 
-    @unittest.skip('')
     def test_room_refuses_entry_if_room_is_at_capacity(self):
         self.room1.check_in_guest(self.guest1)
         self.room1.check_in_guest(self.guest2)

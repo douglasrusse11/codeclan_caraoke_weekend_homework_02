@@ -6,7 +6,7 @@ class Room:
         self.fee = fee
 
     def check_in_guest(self, guest):
-        if guest.can_afford_entry_fee(self.fee):
+        if guest.can_afford_entry_fee(self.fee) and not self.is_at_capacity():
             self.guests.append(guest)
 
     def check_out_guest(self, guest):
