@@ -29,6 +29,7 @@ class Room:
     def check_out_guest(self, guest):
         """Removes guest from self.guests"""
         self.guests.remove(guest)
+        self.remove_favourite_song(guest)
 
     def add_song(self, song):
         """Adds song to List self.songs"""

@@ -262,7 +262,6 @@ class TestRoom(TestSetup):
         self.assertTrue(self.room2.playlist[self.song1] in [self.guest1, self.guest4])
         self.assertEqual(self.guest5, self.room2.playlist[self.song3])
 
-    @unittest.skip('')
     def test_generate_playlist_integration_check_out_guests(self):
         self.room2.add_song(self.song1)
         self.room2.add_song(self.song2)
