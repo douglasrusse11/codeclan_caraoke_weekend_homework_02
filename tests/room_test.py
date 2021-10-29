@@ -17,7 +17,6 @@ class TestRoom(TestSetup):
     def test_room_has_empty_till(self):
         self.assertEqual(0, self.room1.till)
 
-    @unittest.skip('')
     def test_room_has_no_favourite_songs(self):
         self.assertEqual({}, self.room1.favourite_songs)
 
