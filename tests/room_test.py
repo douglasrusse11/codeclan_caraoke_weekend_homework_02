@@ -72,7 +72,6 @@ class TestRoom(TestSetup):
     def test_empty_room_is_not_at_capacity(self):
         self.assertFalse(self.room1.is_at_capacity())
 
-    @unittest.skip('')
     def test_add_favourite_song(self):
         result = {self.song1: [self.guest1]}
         self.room1.add_favourite_song(self.guest1)

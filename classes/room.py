@@ -20,3 +20,6 @@ class Room:
 
     def is_at_capacity(self):
         return len(self.guests) == self.capacity
+
+    def add_favourite_song(self, guest):
+        self.favourite_songs = {guest.favourite_song: [guest]}
