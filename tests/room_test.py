@@ -158,6 +158,12 @@ class TestRoom(TestSetup):
         self.assertEqual(10, self.guest2.wallet)
         self.assertEqual(2, self.guest4.wallet)
         
+    def test_guest_cheers_if_room_has_favourite_song(self):
+        self.room1.add_song(self.song1)
+        self.assertEqual("Whoo!", self.room1.check_in_guest(self.guest1))
 
-    
+    @unittest.skip('')
+    def test_guest_does_not_cheer_if_room_does_not_have_favourite_song(self):
+        self.room1.add_song(self.song1)
+        self.assertEqual(None, self.room1.check_in_guest(self.guest2))   
 
