@@ -1,13 +1,19 @@
 class Room:
-    def __init__(self):
+    def __init__(self, capacity, fee):
         self.guests = []
         self.songs = []
+        self.capacity = capacity
+        self.fee = fee
 
     def check_in_guest(self, guest):
-        self.guests.append(guest)
+        if guest.can_afford_entry_fee(self.fee) and not self.is_at_capacity():
+            self.guests.append(guest)
 
     def check_out_guest(self, guest):
         self.guests.remove(guest)
 
     def add_song(self, song):
         self.songs.append(song)
+
+    def is_at_capacity(self):
+        return len(self.guests) == self.capacity
