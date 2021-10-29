@@ -10,3 +10,6 @@ class Guest:
     def cheer(self, songs):
         if self.favourite_song in songs:
             return "Whoo!"
+
+    def pay_fee(self, fee):
+        self.wallet -= fee

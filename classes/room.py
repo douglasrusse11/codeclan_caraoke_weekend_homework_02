@@ -14,7 +14,7 @@ class Room:
         if guest.can_afford_entry_fee(self.fee) and not self.is_at_capacity():
             self.guests.append(guest)
             self.charge_fee()
-            guest.wallet -= self.fee
+            guest.pay_fee(self.fee)
             return guest.cheer(self.songs)
 
     def check_out_guest(self, guest):
