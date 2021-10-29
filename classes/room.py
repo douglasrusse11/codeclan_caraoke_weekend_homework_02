@@ -6,6 +6,7 @@ class Room:
         self.fee = fee
         self.till = 0
         self.favourite_songs = {}
+        self.playlist = {}
 
     def check_in_guest(self, guest):
         if guest.can_afford_entry_fee(self.fee) and not self.is_at_capacity():
