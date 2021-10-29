@@ -14,7 +14,6 @@ class TestRoom(TestSetup):
     def test_room_has_fee(self):
         self.assertEqual(5, self.room1.fee)
 
-    @unittest.skip('')
     def test_room_has_empty_till(self):
         self.assertEqual(0, self.room1.till)
 
