@@ -110,7 +110,7 @@ class TestRoom(TestSetup):
         self.room1.add_favourite_song(self.guest3)
         self.room1.add_favourite_song(self.guest4)
         self.room1.generate_playlist()
-        self.assertFalse(self.song3 not in self.room1.playlist)
+        self.assertFalse(self.song3 in self.room1.playlist)
         
     # Integration tests
     def test_room_refuses_entry_if_guest_cannot_afford_entry_fee(self):
