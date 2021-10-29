@@ -15,6 +15,7 @@ class Room:
             self.guests.append(guest)
             self.charge_fee()
             guest.pay_fee(self.fee)
+            self.add_favourite_song(guest)
             return guest.cheer(self.songs)
 
     def check_out_guest(self, guest):

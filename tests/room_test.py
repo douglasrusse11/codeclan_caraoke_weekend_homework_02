@@ -166,7 +166,6 @@ class TestRoom(TestSetup):
         self.room1.add_song(self.song1)
         self.assertEqual(None, self.room1.check_in_guest(self.guest2))   
 
-    @unittest.skip('')
     def test_check_in_guest_adds_favourite_song(self):
         result = {self.song1: [self.guest1]}
         self.room1.check_in_guest(self.guest1)
