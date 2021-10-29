@@ -148,8 +148,6 @@ class TestRoom(TestSetup):
         self.assertEqual(10, self.guest2.wallet)
         self.assertEqual(7, self.guest4.wallet)
 
-    
-    @unittest.skip('')
     def test_room_entry_fee_is_charged_check_outs(self):
         self.room1.check_in_guest(self.guest1)
         self.room1.check_in_guest(self.guest2)
