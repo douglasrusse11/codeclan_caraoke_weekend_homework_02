@@ -3,6 +3,7 @@ class Room:
         self.guests = []
         self.songs = []
         self.capacity = capacity
+        self.fee = fee
 
     def check_in_guest(self, guest):
         self.guests.append(guest)
