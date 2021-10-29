@@ -112,14 +112,13 @@ class TestRoom(TestSetup):
         self.room1.generate_playlist()
         self.assertFalse(self.song3 in self.room1.playlist)
         
-    @unittest.skip('')
     def test_song_lottery(self):
         self.room1.add_favourite_song(self.guest1)
         self.room1.add_favourite_song(self.guest2)
         self.room1.add_favourite_song(self.guest3)
         self.room1.add_favourite_song(self.guest4)
-        self.assertTrue(self.room1.song_lottery(self.song1) in [self.guest1, self,guest3])
-        self.assertTrue(self.room1.song_lottery(self.song2) in [self.guest2, self.guest3]))
+        self.assertTrue(self.room1.song_lottery(self.song1) in [self.guest1, self.guest4])
+        self.assertTrue(self.room1.song_lottery(self.song2) in [self.guest2, self.guest3])
     
     # Integration tests
     def test_room_refuses_entry_if_guest_cannot_afford_entry_fee(self):

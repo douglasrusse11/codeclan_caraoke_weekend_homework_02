@@ -1,3 +1,5 @@
+import random
+
 class Room:
     def __init__(self, capacity, fee):
         self.guests = []
@@ -30,3 +32,6 @@ class Room:
         for song in self.songs:
             if song in self.favourite_songs:
                 self.playlist[song] = self.favourite_songs[song][0]
+
+    def song_lottery(self, song):
+        return self.favourite_songs[song][random.randint(0, len(self.favourite_songs[song]) - 1)]
