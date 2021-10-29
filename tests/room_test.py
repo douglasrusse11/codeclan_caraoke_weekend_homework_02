@@ -8,7 +8,6 @@ class TestRoom(TestSetup):
     def test_room_has_no_songs(self):
         self.assertEqual([], self.room1.songs)
 
-    @unittest.skip('')
     def test_room_has_capacity(self):
         self.assertEqual(2, self.room1.capacity)
 
