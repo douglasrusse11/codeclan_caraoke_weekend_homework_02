@@ -139,12 +139,15 @@ class TestRoom(TestSetup):
         self.assertEqual(5, self.room1.till)
         self.assertEqual(5, self.guest1.wallet)
 
-    @unittest.skip('')
     def test_room_entry_fee_is_charged_at_capacity(self):
         self.room1.check_in_guest(self.guest1)
         self.room1.check_in_guest(self.guest2)
         self.room1.check_in_guest(self.guest4)
         self.assertEqual(10, self.room1.till)
+        self.assertEqual(5, self.guest1.wallet)
+        self.assertEqual(10, self.guest2.wallet)
+        self.assertEqual(7, self.guest4.wallet)
+
     
     @unittest.skip('')
     def test_room_entry_fee_is_charged_check_outs(self):
@@ -153,6 +156,9 @@ class TestRoom(TestSetup):
         self.room1.check_out_guest(self.guest1)
         self.room1.check_in_guest(self.guest4)
         self.assertEqual(15, self.room1.till)
+        self.assertEqual(5, self.guest1.wallet)
+        self.assertEqual(10, self.guest2.wallet)
+        self.assertEqual(2, self.guest4.wallet)
         
 
     

@@ -13,8 +13,8 @@ class Room:
     def check_in_guest(self, guest):
         if guest.can_afford_entry_fee(self.fee) and not self.is_at_capacity():
             self.guests.append(guest)
-        self.till = 5
-        guest.wallet = 5
+            self.till += self.fee
+            guest.wallet -= self.fee
 
     def check_out_guest(self, guest):
         self.guests.remove(guest)
