@@ -31,7 +31,7 @@ class Room:
     def generate_playlist(self):
         for song in self.songs:
             if song in self.favourite_songs:
-                self.playlist[song] = self.favourite_songs[song][0]
+                self.playlist[song] = self.song_lottery(song)
 
     def song_lottery(self, song):
         return self.favourite_songs[song][random.randint(0, len(self.favourite_songs[song]) - 1)]
